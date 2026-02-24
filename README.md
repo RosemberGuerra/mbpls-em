@@ -1,13 +1,11 @@
 # mbpls-em
 
 Probabilistic multi-block PLS with EM estimation.
-<img width="888" height="571" alt="Probabilistic multi-block PLS with EM estimation  - visual selection" src="https://github.com/user-attachments/assets/8597303c-392f-4150-a930-ff74eb5a42f5" />
-<img width="888" height="571" alt="Probabilistic multi-block PLS with EM estimation  - visual selection" src="https://github.com/user-attachments/assets/8597303c-392f-4150-a930-ff74eb5a42f5" />
 
 This package implements a probabilistic latent variable model for integrating multiple datasets (blocks) measured on different samples, decomposing shared and dataset-specific structure, and estimating parameters via an Expectation–Maximization (EM) algorithm.
+<img width="888" height="571" alt="Probabilistic multi-block PLS with EM estimation  - visual selection" src="https://github.com/user-attachments/assets/8597303c-392f-4150-a930-ff74eb5a42f5" />
 
 ## Features
-
 - Shared and block-specific latent structure
 - EM-based maximum likelihood estimation
 - Orthonormal loading updates

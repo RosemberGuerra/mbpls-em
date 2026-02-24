@@ -23,13 +23,15 @@ Clone the repository and install locally:
 ### Install directly from GitHub
 
 ```bash
-pip install git+https://github.com/yourusername/mbpls-em.git
+pip install git+https://github.com/RosemberGuerra/mbpls-em.git
 ```
 
 
 ### Clone the repository (Development install):
 
 ```bash
+git clone https://github.com/RosemberGuerra/mbpls-em.git
+cd mbpls-em
 pip install -e .
 ```
 

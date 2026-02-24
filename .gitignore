@@ -1,0 +1,18 @@
+/.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+
+# Data & results
+/experiments/Example1/results/
+/data/
+/results/
+/msa_rna_application/results/
+
+# IDE noise
+.idea/
+.vscode/
+
+# OS noise
+.DS_Store

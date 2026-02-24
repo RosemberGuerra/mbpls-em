@@ -13,10 +13,6 @@ This package implements a probabilistic latent variable model for integrating mu
 - Subspace and reconstruction metrics
 - Modular design for research use
 
-## Installation
-
-Clone the repository and install locally:
-
 
 ## Installation
 

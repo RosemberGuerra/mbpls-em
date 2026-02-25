@@ -17,7 +17,8 @@ This package implements a probabilistic latent variable model for integrating mu
 - Modular design for research use
 
 ## Mathematical Model Structure
-We consider $K$ datasets $(X_k, Y_k)$, with $X_k\in \mathbb{R}^{N_k \times d}$ and an associated response $Y_k\in \mathbb{R}^{N_k}$, for $k=1,\dots,K$. Our goal is to integrate the $K$ datasets while model the (response) variables $Y_k$. To achieve this, we introduce the following latent variable model
+We consider $K$ datasets $(X_k, Y_k)$, with $X_k\in \mathbb{R}^{N_k \times d}$ and an associated response $Y_k\in \mathbb{R}^{N_k}$, for $k=1,\dots,K$. Our goal is to integrate the $K$ datasets while model the (response) variables $Y_k$. To achieve this, we introduce the following latent variable model:
+
 $$
 X_k = T_k W^\top + U_k P_k^\top + E_k
 $$

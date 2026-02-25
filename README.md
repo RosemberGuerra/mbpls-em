@@ -19,11 +19,11 @@ This package implements a probabilistic latent variable model for integrating mu
 ## Mathematical Model Structure
 We consider $K$ datasets $(X_k, Y_k)$, with $X_k\in \mathbb{R}^{N_k \times d}$ and an associated response $Y_k\in \mathbb{R}^{N_k}$, for $k=1,\dots,K$. Our goal is to integrate the $K$ datasets while model the (response) variables $Y_k$. To achieve this, we introduce the following latent variable model
 $$
-X_k &= T_k W^\top + U_k P_k^\top + E_k,
+X_k = T_k W^\top + U_k P_k^\top + E_k
 $$
 
 $$
-Y_k &= T_k \beta_k^\top + U_k \phi_k^\top + \varepsilon_k.
+Y_k = T_k \beta_k^\top + U_k \phi_k^\top + \varepsilon_k
 $$
 
 where the shared loading structure among the datasets $X_k$ is represent by $W$ while the specific loading structure is represented by $P_k$. The share latent scores between $X_k$ and $Y_k$ is $T_k\in \mathbb{R}^{N_k \times r}$ and $U_k \in \mathbb{R}^{N_k \times q_k}$. $E_k$ and $\varepsilon_k$ denote the noises.

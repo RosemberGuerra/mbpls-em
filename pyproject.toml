@@ -19,6 +19,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest",
+  "jupyter",
 ]
 
 [tool.setuptools.packages.find]

@@ -6,8 +6,8 @@ from mbpls_em.estimators.EM.mstep.update_beta_phi import update_beta_phi
 
 
 def cosine_sim(u: np.ndarray, v: np.ndarray) -> float:
-    num = float(u @ v.T)  # both are (1×r) row vectors
-    den = float(np.linalg.norm(u) * np.linalg.norm(v) + 1e-12)
+    num = (u @ v.T).item()  # both are (1×r) row vectors ## was: float(u @ v.T)
+    den = (np.linalg.norm(u) * np.linalg.norm(v) + 1e-12).item() # was: float()
     return abs(num / den)
 
 def test_update_beta_phi_with_em_latents():

@@ -60,7 +60,7 @@ pip install git+https://github.com/RosemberGuerra/mbpls-em.git
 ```bash
 git clone https://github.com/RosemberGuerra/mbpls-em.git
 cd mbpls-em
-pip install -e .
+pip install -e ".[dev]"
 ```
 ## Example Usage
 (To be added)

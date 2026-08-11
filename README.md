@@ -1,5 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
+[![Tests](https://github.com/RosemberGuerra/mbpls-em/actions/workflows/tests.yml/badge.svg)](https://github.com/RosemberGuerra/mbpls-em/actions/workflows/tests.yml)
 
 # mbpls-em
 
@@ -63,7 +64,8 @@ cd mbpls-em
 pip install -e ".[dev]"
 ```
 ## Example Usage
-(To be added)
+Check the quick start example:
+[quickstart](examples/quickstart.ipynb)
 ## Status
 
 Research software. Actively developed.

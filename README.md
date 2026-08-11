@@ -73,4 +73,4 @@ Research software. Actively developed.
 Rosember Guerra-Urzola
 
 ## Funding
-Developed as part of  *Multi-omics approach to predict therapeutic targets for multiple system atrophy*, under Grant No. 418452464.
+Developed as part of  *Alpha-Synuclein OMICS to identify Drug-targets (SynOD)*, under Grant No. [10510062320007](https://projecten.zonmw.nl/en/project/alpha-synuclein-omics-identify-drug-targets-synod).

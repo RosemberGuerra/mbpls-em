@@ -4,7 +4,7 @@
 
 # mbpls-em
 
-Probabilistic multi-block PLS with EM estimation in Python.
+## Probabilistic multi-block PLS with EM estimation in Python.
 
 This package implements a probabilistic latent variable model for integrating multiple datasets (blocks) measured on different samples, decomposing shared and dataset-specific structure, and estimating parameters via an Expectation–Maximization (EM) algorithm.
 <img width="888" height="571" alt="Probabilistic multi-block PLS with EM estimation  - visual selection" src="https://github.com/user-attachments/assets/8597303c-392f-4150-a930-ff74eb5a42f5" />

@@ -21,6 +21,7 @@ dev = [
   "pytest",
   "jupyter",
 ]
+app = ["streamlit"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -7,6 +7,7 @@
 
 from __future__ import annotations
 import numpy as np
+import random
 from typing import List, Dict, Tuple, Optional
 
 # ---------------- small helpers ----------------
@@ -53,6 +54,22 @@ def assert_constraints(W: np.ndarray, P_list: List[np.ndarray],
         assert np.allclose(Pk.T @ Pk, I_q, rtol=rtol, atol=atol), f"P[{k}]^T P[{k}] != I"
         Z = W.T @ Pk
         assert np.allclose(Z, 0.0, rtol=rtol, atol=atol), f"W^T P[{k}] not ~ 0"
+
+# ---------------- Gene names ----------------
+def generate_gene_pool(total_genes=1000):
+    """Generates a master pool of unique, realistic mock gene names."""
+    random.seed(10123)  # seeded for reproducible gene names across runs
+    prefixes = ["BRCA", "TP", "HOX", "EGFR", "IL", "MMP", "STAT", "MYC", "APOE", "VEGFA"]
+    suffixes = ["A", "B", "L", "R", "α", "β", "1", "2", ""]
+    
+    gene_pool = set()
+    while len(gene_pool) < total_genes:
+        prefix = random.choice(prefixes)
+        num = random.randint(1, 200)
+        suffix = random.choice(suffixes)
+        gene_pool.add(f"{prefix}{num}{suffix}")
+        
+    return list(gene_pool)
 
 # ---------------- generator ----------------
 

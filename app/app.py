@@ -6,6 +6,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 from mbpls_em.simulate import generate_multiblock_mbpls
+from mbpls_em.simulate import generate_gene_pool
 from mbpls_em.estimators import MBPLS_EM
 
 st.set_page_config(page_title="Gene Prioritization explorer", page_icon="🧬", layout="centered")
@@ -21,23 +22,6 @@ LOGO_SVG = """
   <rect x="46" y="44" width="10" height="16" rx="2" fill="#1B2A4A"/>
 </svg>
 """
-
-
-def generate_gene_pool(total_genes=1000):
-    """Generates a master pool of unique, realistic mock gene names."""
-    random.seed(10123)  # seeded for reproducible gene names across runs
-    prefixes = ["BRCA", "TP", "HOX", "EGFR", "IL", "MMP", "STAT", "MYC", "APOE", "VEGFA"]
-    suffixes = ["A", "B", "L", "R", "α", "β", "1", "2", ""]
-
-    gene_pool = set()
-    while len(gene_pool) < total_genes:
-        prefix = random.choice(prefixes)
-        num = random.randint(1, 200)
-        suffix = random.choice(suffixes)
-        gene_pool.add(f"{prefix}{num}{suffix}")
-
-    return list(gene_pool)
-
 
 col_logo, col_title = st.columns([1, 8])
 with col_logo:

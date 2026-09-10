@@ -16,3 +16,6 @@ __pycache__/
 
 # OS noise
 .DS_Store
+
+# Ruff stuff:
+.ruff_cache/

@@ -1,15 +1,14 @@
-import random
-
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 
-from mbpls_em.simulate import generate_multiblock_mbpls
-from mbpls_em.simulate import generate_gene_pool
 from mbpls_em.estimators import MBPLS_EM
+from mbpls_em.simulate import generate_gene_pool, generate_multiblock_mbpls
 
-st.set_page_config(page_title="Gene Prioritization explorer", page_icon="🧬", layout="centered")
+st.set_page_config(
+    page_title="Gene Prioritization explorer", page_icon="🧬", layout="centered"
+)
 
 # Scree-plot mark in the site's palette (ink navy / signal teal / data amber).
 # These hex values are an approximation - swap in the exact ones from the
@@ -38,8 +37,12 @@ with st.sidebar:
     n = st.slider("Samples per block", min_value=20, max_value=300, value=100, step=10)
     r = st.slider("Shared rank (r)", min_value=1, max_value=10, value=5)
     q = st.slider("Specific rank (q)", min_value=1, max_value=20, value=10)
-    sig2e = st.slider("Noise (blocks)", min_value=0.0, max_value=1.0, value=0.15, step=0.05)
-    sig2eps = st.slider("Noise (effects)", min_value=0.0, max_value=1.0, value=0.12, step=0.05)
+    sig2e = st.slider(
+        "Noise (blocks)", min_value=0.0, max_value=1.0, value=0.15, step=0.05
+    )
+    sig2eps = st.slider(
+        "Noise (effects)", min_value=0.0, max_value=1.0, value=0.12, step=0.05
+    )
     seed = st.number_input("Seed", value=10123, step=1)
     fit_clicked = st.button("Fit model", use_container_width=True)
 
@@ -124,4 +127,6 @@ if "df_effects_sorted" in st.session_state:
         use_container_width=True,
     )
 else:
-    st.info("Set your parameters in the sidebar and click 'Fit model' to see results here.")
+    st.info(
+        "Set your parameters in the sidebar and click 'Fit model' to see results here."
+    )

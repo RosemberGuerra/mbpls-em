@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
+import altair as alt
 
 from mbpls_em.estimators import MBPLS_EM
 from mbpls_em.simulate import generate_gene_pool, generate_multiblock_mbpls
@@ -30,7 +31,7 @@ with col_title:
     st.caption("Probabilistic multi-block PLS with EM estimation")
 
 
-with st.sidebar:
+with st.sidebar: 
     st.header("Data settings")
     k = st.selectbox("Blocks (K)", [2, 3])
     d = st.number_input("Genes (d)", min_value=10, max_value=1000, value=100, step=10)
@@ -87,6 +88,7 @@ if fit_clicked:
         )
         df_effects["total_effect"] = np.linalg.norm(df_effects, axis=1)
         df_effects_sorted = df_effects.sort_values(by="total_effect", ascending=False)
+        df_effects_sorted.reset_index(level=0,inplace=True)
 
         # persist across reruns - see explanation above
         st.session_state["df_effects_sorted"] = df_effects_sorted
@@ -101,32 +103,28 @@ if "df_effects_sorted" in st.session_state:
     top_genes = df_effects_sorted.head(20)
     tab2.write(top_genes)
 
+    #  Melt to long format for Altair
+    df_long = top_genes.melt(id_vars="index", var_name="Variable", value_name="Value")
+
+    # Create chart with preserved order
+    chart = alt.Chart(df_long).mark_line(point=True).encode(
+        x=alt.X("index", sort=list(top_genes["index"])),  # Explicit order
+        y="Value",
+        color="Variable"
+        )
+
+    
 
     history = st.session_state["history"]
     st.caption(f"Converged in {history['iters']} iterations")
 
-    # fig_conv, ax_conv = plt.subplots()
-    # ax_conv.plot(history["loglik"], marker="o")
-    # ax_conv.set_title("Convergence")
-    # ax_conv.set_xlabel("EM iteration")
-    # ax_conv.set_ylabel("Log-likelihood")
-    # fig_conv.tight_layout()
-    # st.pyplot(fig_conv)
-
-    # fig, ax = plt.subplots()
-    # top_genes.plot(y=list(top_genes.columns), kind="line", marker="o", ax=ax)
-    # ax.set_title("Gene effect size (top 20 by total effect)")
-    # ax.set_xlabel("Genes")
-    # ax.set_ylabel("Effect size")
-    # ax.tick_params(axis="x", rotation=45)
-    # fig.tight_layout()
-
-    # tab1.pyplot(fig)
-    # tab1.pyplot(fig_conv)
-    tab1.line_chart(top_genes)
+    # Effect plot
+    tab1.altair_chart(chart, use_container_width=True) 
+    # log likelihoo plot
     tab1.line_chart(history["loglik"], 
                     x_label ="Algorithm Iterations",
                     y_label= "Log-Likelihood")
+
     st.download_button(
         "Download results (csv)",
         data=df_effects_sorted.to_csv().encode("utf-8"),

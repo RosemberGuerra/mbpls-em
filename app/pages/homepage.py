@@ -129,7 +129,7 @@ with math_col:
     st.latex(r"X_k = T_k W^\top + U_k P_k^\top + E_k")
     st.latex(r"Y_k = T_k \beta_k^\top + U_k \phi_k^\top + \varepsilon_k")
     st.markdown(
-        """
+        r"""
         * **$W$**: Orthonormal shared loading structure across all cohorts.
         * **$P_k$**: Block-specific structural variation unique to cohort $k$.
         * **$T_k, U_k$**: Shared and specific latent score matrices ($T_k \in \mathbb{R}^{N_k \times r}$, $U_k \in \mathbb{R}^{N_k \times q_k}$).
